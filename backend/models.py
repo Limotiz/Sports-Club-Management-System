@@ -4,7 +4,6 @@ from datetime import date
 
 
 class User(db.Model):
-    __tablename__ = "users"
 
     id = db.Column(db.Integer, primary_key=True)
 
@@ -24,8 +23,7 @@ class User(db.Model):
 
 
 class Sport(db.Model):
-    __tablename__ = "sports"
-
+    
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
     description = db.Column(db.String)
@@ -37,8 +35,7 @@ class Sport(db.Model):
 
 
 class Team(db.Model):
-    __tablename__ = "teams"
-
+    
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
     category = db.Column(db.String)
@@ -57,7 +54,6 @@ class Team(db.Model):
 
 
 class Player(db.Model):
-    __tablename__ = "players"
 
     id = db.Column(db.Integer, primary_key=True)
 
@@ -79,8 +75,7 @@ class Player(db.Model):
 
 
 class TeamPlayer(db.Model):
-    __tablename__ = "team_players"
-
+    
     id = db.Column(db.Integer, primary_key=True)
 
     team_id = db.Column(db.Integer, db.ForeignKey("teams.id"), nullable=False)

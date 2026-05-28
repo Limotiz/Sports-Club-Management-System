@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify
 from datetime import datetime
 from datetime import timezone
-from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity,get_jwt
+from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity,get_jwt, create_refresh_token
 
 from app import db
 from models import User,TokenBlocklist
@@ -78,10 +78,10 @@ def login():
         }), 401
 
     access_token = create_access_token(identity=str(user.id))
-
+    refresh_token = create_refresh_token(identity=str(user.id)) 
     return jsonify({
         "success": "Login successful",
-        "access_token": access_token,
+        "access_token": access_token,"refresh_token": refresh_token,
         "user": {
             "id": user.id,
             "username": user.username,
