@@ -1,9 +1,10 @@
 from app import db
 from werkzeug.security import generate_password_hash, check_password_hash
-from datetime import date
+from datetime import date, datetime
 
 
 class User(db.Model):
+    __tablename__ = "users"
 
     id = db.Column(db.Integer, primary_key=True)
 
@@ -23,7 +24,8 @@ class User(db.Model):
 
 
 class Sport(db.Model):
-    
+    __tablename__ = "sports"
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
     description = db.Column(db.String)
@@ -35,7 +37,8 @@ class Sport(db.Model):
 
 
 class Team(db.Model):
-    
+    __tablename__ = "teams"
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
     category = db.Column(db.String)
@@ -54,6 +57,7 @@ class Team(db.Model):
 
 
 class Player(db.Model):
+    __tablename__ = "players"
 
     id = db.Column(db.Integer, primary_key=True)
 
@@ -75,7 +79,8 @@ class Player(db.Model):
 
 
 class TeamPlayer(db.Model):
-    
+    __tablename__ = "team_players"
+
     id = db.Column(db.Integer, primary_key=True)
 
     team_id = db.Column(db.Integer, db.ForeignKey("teams.id"), nullable=False)
@@ -87,7 +92,10 @@ class TeamPlayer(db.Model):
     team = db.relationship("Team", back_populates="team_players")
     player = db.relationship("Player", back_populates="team_players")
 
+
 class TokenBlocklist(db.Model):
+    __tablename__ = "token_blocklist"
+
     id = db.Column(db.Integer, primary_key=True)
     jti = db.Column(db.String(36), nullable=False, index=True)
-    created_at = db.Column(db.DateTime, nullable=False)    
+    created_at = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)

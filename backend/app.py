@@ -24,7 +24,7 @@ from views import *
 app.register_blueprint(sport_bp)
 app.register_blueprint(team_bp)
 app.register_blueprint(player_bp)
-app.register_blueprint(auth_bp)
+app.register_blueprint(auth_bp, url_prefix="/auth")
 
 
 # Callback function to check if a JWT exists in the database blocklist

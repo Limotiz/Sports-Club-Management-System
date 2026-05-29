@@ -12,7 +12,7 @@ sport_bp = Blueprint("sport_bp", __name__)
 @sport_bp.route("/sports")
 def fetch_sports():
 
-    sports = Sport.query.get.all()
+    sports = Sport.query.all()
 
     results = []
 

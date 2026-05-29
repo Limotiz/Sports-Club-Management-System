@@ -49,15 +49,15 @@ with app.app_context():
     print("Creating teams...")
 
     senior_football = Team(
-        name="Senior Football Team",
-        category="Senior Men",
+        name="Football Team A",
+        category="First XI",
         sport_id=football.id,
         user_id=admin.id
     )
 
     junior_football = Team(
-        name="Junior Football Team",
-        category="Junior Boys",
+        name="Football Team B",
+        category="Second XI",
         sport_id=football.id,
         user_id=admin.id
     )
@@ -79,29 +79,29 @@ with app.app_context():
     print("Creating players...")
 
     player1 = Player(
-        first_name="David",
-        last_name="Musembi",
-        email="david@example.com",
+        first_name="Limotiz",
+        last_name="Owen",
+        email="limotiz@example.com",
         phone="0712345678",
         age=24,
         user_id=admin.id
     )
-
     player2 = Player(
-        first_name="Mary",
-        last_name="Wanjiku",
-        email="mary@example.com",
-        phone="0723456789",
-        age=22,
-        user_id=admin.id
-    )
-
-    player3 = Player(
         first_name="John",
         last_name="Otieno",
         email="john@example.com",
         phone="0734567890",
         age=23,
+        user_id=admin.id
+   
+    )
+
+    player3 = Player(
+        first_name="Angel",
+        last_name="Reese",
+        email="angel@example.com",
+        phone="0723456789",
+        age=22,
         user_id=admin.id
     )
 
