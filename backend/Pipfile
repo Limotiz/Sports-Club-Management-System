@@ -12,6 +12,7 @@ flask-bcrypt = "*"
 sqlalchemy-serializer = "*"
 flask-jwt-extended = "*"
 werkzeug = "*"
+flask-mail = "*"
 
 [dev-packages]
 

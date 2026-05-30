@@ -1,6 +1,6 @@
 import { createContext, useContext, useState } from "react";
 import toast from "react-hot-toast";
-import { apiRequest } from "../services/api";
+import { apiRequest } from "../server/api";
 
 const AuthContext = createContext();
 

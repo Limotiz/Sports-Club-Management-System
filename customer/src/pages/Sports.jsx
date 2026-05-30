@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import { apiRequest } from "../services/api";
+import { apiRequest } from "../server/api";
 
 function Sports() {
   const [sports, setSports] = useState([]);

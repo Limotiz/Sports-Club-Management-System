@@ -48,13 +48,13 @@ function Home() {
               Sports Club Management System
             </p>
 
-            <h1 className="text-5xl md:text-6xl font-black text-white leading-tight mb-6">
-              Manage your club, teams and players in one place.
+            <h1 className="text-6xl md:text-4xl font-black text-white leading-tight mb-6">
+              Manage your club place. Track your Players.Organize your team. Win trophies.
             </h1>
 
             <p className="text-lg text-slate-300 mb-8 max-w-xl">
               SportClub helps you organize sports, create teams, register
-              players, and assign players to different teams using a clean
+              players, and assign players to different teams using a simple
               full-stack system.
             </p>
 
