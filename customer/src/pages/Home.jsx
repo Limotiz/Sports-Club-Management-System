@@ -49,7 +49,7 @@ function Home() {
             </p>
 
             <h1 className="text-6xl md:text-4xl font-black text-white leading-tight mb-6">
-              Manage your club place. Track your Players.Organize your team. Win trophies.
+              Manage your sport club. Track your Players. Organize your teams. Win trophies.
             </h1>
 
             <p className="text-lg text-slate-300 mb-8 max-w-xl">

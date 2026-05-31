@@ -2,8 +2,8 @@ from flask import Blueprint, request, jsonify
 from datetime import datetime
 from datetime import timezone
 from flask_jwt_extended import create_access_token, jwt_required, get_jwt_identity,get_jwt, create_refresh_token
-
-from app import db
+from app import db, mail
+from flask_mail import Message
 from models import User,TokenBlocklist
 
 
@@ -42,6 +42,13 @@ def register():
     db.session.add(new_user)
     db.session.commit()
 
+    msg = Message(
+        subject="noreply@sportsclub.com",
+        recipients=[email],
+        body="You have a new sign up in your application."
+    )
+    mail.send(msg)
+
     return jsonify({
         "success": "User registered successfully",
         "user": {
@@ -79,6 +86,12 @@ def login():
 
     access_token = create_access_token(identity=str(user.id))
     refresh_token = create_refresh_token(identity=str(user.id)) 
+    msg = Message(
+        subject="noreply@sportsclub.com",
+        recipients=[email],
+        body="Someone logged in your application."
+    )
+    mail.send(msg)
     return jsonify({
         "success": "Login successful",
         "access_token": access_token,"refresh_token": refresh_token,
