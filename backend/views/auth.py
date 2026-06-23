@@ -19,14 +19,16 @@ def register():
     email = data.get("email")
     password = data.get("password")
 
+# validate input
+
     if not username or not email or not password:
         return jsonify({
             "error": "Username, email and password are required"
         }), 400
+    
+# check if user already exists
 
-    existing_user = User.query.filter_by(email=email).first()
-
-    if existing_user:
+    if User.query.filter_by(email=email).first():
         return jsonify({
             "error": "Email already exists"
         }), 409
@@ -71,15 +73,11 @@ def login():
         return jsonify({
             "error": "Email and password are required"
         }), 400
+    # find User
 
     user = User.query.filter_by(email=email).first()
 
-    if not user:
-        return jsonify({
-            "error": "Invalid email or password"
-        }), 401
-
-    if not user.check_password(password):
+    if not user or not user.check_password(password):
         return jsonify({
             "error": "Invalid email or password"
         }), 401
